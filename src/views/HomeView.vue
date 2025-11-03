@@ -1,13 +1,28 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import type { CoinCardData } from '@/types'
 import CoinCard from '@/components/CoinCard.vue'
 
-const coins = ref<CoinCardData[]>([
-  { id: 'bitcoin', name: 'Bitcoin', symbol: 'BTC', price: 45000, change24h: 2.5 },
-  { id: 'ethereum', name: 'Ethereum', symbol: 'ETH', price: 3200, change24h: -1.2 },
-  { id: 'cardano', name: 'Cardano', symbol: 'ADA', price: 0.52, change24h: 3.8 },
-])
+const coins = ref<CoinCardData[]>([])
+
+const rowsToShow = ref(20)
+
+const fetchCoins = async () => {
+  const response = await fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${rowsToShow.value}&page=1&sparkline=false`)
+  const data = await response.json()
+  coins.value = data.map((coin: any) => ({
+    id: coin.id,
+    name: coin.name,
+    symbol: coin.symbol,
+    current_price: coin.current_price,
+    price_change_percentage_24h: coin.price_change_percentage_24h,
+    image: coin.image,
+  }))
+}
+
+onMounted(() => {
+  fetchCoins()
+})
 </script>
 
 <template>

@@ -9,9 +9,9 @@ interface Props {
 defineProps<Props>()
 
 const formatPrice = (price: number) => {
-  if (price < 1) {
+  if (price <= 1) {
     return price.toLocaleString('en-US', {
-      minimumFractionDigits: 2,
+      minimumFractionDigits: 0,
       maximumFractionDigits: 6,
     })
   }
@@ -38,12 +38,12 @@ const formatPrice = (price: number) => {
       </div>
 
       <div class="text-right">
-        <p class="font-bold text-crypto-text">${{ formatPrice(coin.price) }}</p>
+        <p class="font-bold text-crypto-text">${{ formatPrice(Number(coin.current_price)) }}</p>
         <p
-          :class="coin.change24h >= 0 ? 'text-crypto-green' : 'text-crypto-red'"
+          :class="coin.price_change_percentage_24h >= 0 ? 'text-crypto-green' : 'text-crypto-red'"
           class="text-sm font-medium"
         >
-          {{ coin.change24h >= 0 ? '+' : '' }}{{ coin.change24h }}%
+          {{ coin.price_change_percentage_24h >= 0 ? '+' : '' }}{{ coin.price_change_percentage_24h }}%
         </p>
       </div>
     </div>
