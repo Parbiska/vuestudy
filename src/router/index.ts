@@ -18,6 +18,11 @@ const router = createRouter({
       path: '/coin/:id',
       name: 'coin-detail',
       component: () => import('@/views/CoinDetailView.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: () => import('@/views/NotFoundView.vue')
     }
   ],
 })
