@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { RouterLink, useRouter, useRoute } from 'vue-router'
-import { MagnifyingGlassIcon, StarIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { StarIcon as StarSolidIcon } from '@heroicons/vue/24/solid'
 
 const router = useRouter()
 const route = useRoute()
@@ -79,7 +80,7 @@ const emptySearchQuery = () => {
             to="/favorites"
             class="bg-crypto-accent text-white p-2 rounded-full hover:opacity-90 transition-opacity"
           >
-            <StarIcon class="w-5 h-5" />
+            <StarSolidIcon class="w-5 h-5" />
           </RouterLink>
         </div>
       </div>
