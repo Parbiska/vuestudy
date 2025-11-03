@@ -28,4 +28,3 @@ export async function getCoinsList(params: CoinsListParams = {}): Promise<Coin[]
 export async function getCoinById(id: string): Promise<CoinDetail> {
   return get<CoinDetail>(`/coins/${id}`)
 }
-

@@ -43,7 +43,8 @@ const formatPrice = (price: number) => {
           :class="coin.price_change_percentage_24h >= 0 ? 'text-crypto-green' : 'text-crypto-red'"
           class="text-sm font-medium"
         >
-          {{ coin.price_change_percentage_24h >= 0 ? '+' : '' }}{{ coin.price_change_percentage_24h }}%
+          {{ coin.price_change_percentage_24h >= 0 ? '+' : ''
+          }}{{ coin.price_change_percentage_24h }}%
         </p>
       </div>
     </div>

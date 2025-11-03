@@ -12,8 +12,8 @@ const apiClient: AxiosInstance = axios.create({
 })
 
 apiClient.interceptors.response.use(
-  (response) => response,
-  (error) => {
+  response => response,
+  error => {
     const apiError: ApiError = {
       message: error.response?.data?.error || error.message || 'Unknown error occurred',
       status: error.response?.status,
@@ -23,7 +23,6 @@ apiClient.interceptors.response.use(
   }
 )
 
-export function get<T>(endpoint: string, config?: AxiosRequestConfig): Promise<T> {
-  return apiClient.get<T>(endpoint, config).then((response) => response.data)
+export async function get<T>(endpoint: string, config?: AxiosRequestConfig): Promise<T> {
+  return apiClient.get<T>(endpoint, config).then(response => response.data)
 }
-
