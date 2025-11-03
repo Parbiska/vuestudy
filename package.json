@@ -1,6 +1,6 @@
 {
-  "name": "vuestudy",
-  "version": "0.0.0",
+  "name": "Crypto Tracker",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "engines": {
