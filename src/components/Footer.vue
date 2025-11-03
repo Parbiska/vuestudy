@@ -4,7 +4,7 @@
 <template>
   <footer class="bg-crypto-card border-t border-crypto-border mt-auto">
     <div class="container mx-auto px-4 py-6">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-crypto-text-secondary text-center">
+      <div class="flex flex-col lg:flex-row justify-between items-center gap-4 text-sm text-crypto-text-secondary text-center">
         <p>© 2025 CryptoTracker. All rights reserved.</p>
         
         <p>Цены предоставлены только в информационных целях</p>
