@@ -31,10 +31,20 @@ export interface Coin {
 /**
  * Детальная информация о монете для страницы CoinDetail
  */
-export interface CoinDetail extends Coin {
+export interface CoinDetail {
+  id: string
+  symbol: string
+  name: string
+  image?: {
+    thumb?: string
+    small?: string
+    large?: string
+  }
+  market_cap_rank?: number
   description?: {
     en?: string
     ru?: string
+    [key: string]: string | undefined
   }
   links?: {
     homepage?: string[]
@@ -48,9 +58,20 @@ export interface CoinDetail extends Coin {
   market_data?: {
     current_price?: Record<string, number>
     market_cap?: Record<string, number>
+    total_volume?: Record<string, number>
+    high_24h?: Record<string, number>
+    low_24h?: Record<string, number>
     price_change_24h?: number
     price_change_percentage_24h?: number
     price_change_percentage_7d?: number
     price_change_percentage_30d?: number
+    circulating_supply?: number
+    total_supply?: number
+    max_supply?: number | null
+    ath?: Record<string, number>
+    ath_date?: Record<string, string>
+    atl?: Record<string, number>
+    atl_date?: Record<string, string>
+    market_cap_rank?: number
   }
 }
